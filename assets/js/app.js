@@ -20,7 +20,7 @@ $container.find('button').on('click', function(e) {
     var $button = $(e.currentTarget);
 
     $.ajax({
-        url: '/comments/10/vote/'+$button.val(),
+        url: '/comments/' + $button.data('category') + '/vote/' + $button.val(),
         method: 'POST'
     }).then(function(data) {
         $container.find('.js-vote-total').text(data.votes);
